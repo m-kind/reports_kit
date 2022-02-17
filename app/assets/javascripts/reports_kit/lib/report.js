@@ -68,18 +68,24 @@ ReportsKit.Report = (function() {
       buttonClasses: ['btn', 'btn-sm'],
       applyClass: 'btn-primary btn-daterange-submit',
       cancelClass: 'btn-default',
+      startDate: moment().startOf('month'),
+      endDate: moment(),
       maxDate: moment(),
       locale: {
-        format: 'MMM D, YYYY'
+        format: 'DD.MM.YYYY',
+        customRangeLabel: 'Zeitraum definieren',
+        applyLabel: 'Anwenden',
+        cancelLabel: 'Abbrechen',
+        weekLabel: 'W',
+        firstDay: 1
       },
       ranges: {
-        'Last 30 Days': [moment().subtract(30, 'days'), moment()],
-        'Last 2 Months': [moment().subtract(2, 'months'), moment()],
-        'Last 3 Months': [moment().subtract(3, 'months'), moment()],
-        'Last 4 Months': [moment().subtract(4, 'months'), moment()],
-        'Last 6 Months': [moment().subtract(6, 'months'), moment()],
-        'Last 12 Months': [moment().subtract(12, 'months'), moment()],
-        'Year To Date': [moment().startOf('year'), moment()]
+        'aktueller Monat': [moment().startOf('month'), moment()],
+        'Vormonat': [moment().subtract(1, 'months').startOf('month'), moment().subtract(1, 'months').endOf('month')],
+        'aktuelles Quartal': [moment().startOf('quarter'), moment()],
+        'letztes Quartal': [moment().subtract(1, 'quarters').startOf('quarter'), moment().subtract(1, 'quarters').endOf('quarter')],
+        'aktuelles Jahr': [moment().startOf('year'), moment()],
+        'Vorjahr': [moment().subtract(1, 'years').startOf('year'), moment().subtract(1, 'years').endOf('year')],
       }
     });
   };

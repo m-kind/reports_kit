@@ -3,7 +3,7 @@ module ReportsKit
     module Data
       class Utils
         def self.format_configuration_time(time)
-          time.strftime('%b %-d, %Y')
+          time.strftime('%d.%m.%Y')
         end
 
         def self.format_csv_time(time)
@@ -11,7 +11,7 @@ module ReportsKit
         end
 
         def self.format_display_time(time)
-          time.strftime('%b %-d, \'%y')
+          time.strftime('%d.%m.%Y')
         end
 
         def self.format_date_range(string)
